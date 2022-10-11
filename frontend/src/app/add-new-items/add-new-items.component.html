@@ -74,6 +74,10 @@
         .container {
             max-width: 960px;
         }
+
+        .margin-top {
+            margin-top: 20px;
+        }
     </style>
 
 
@@ -191,6 +195,8 @@
 
                         <button class="w-100 btn btn-primary btn-lg" type="submit" [disabled]="itemForm.invalid">Add into book selling list</button>
                     </form>
+
+                    <button class="w-100 btn btn-primary btn-lg margin-top" [routerLink]="['/admin-landing']">Back to main page</button>
                 </div>
             </div>
         </main>

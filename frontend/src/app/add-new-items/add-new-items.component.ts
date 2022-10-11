@@ -21,7 +21,15 @@ export class AddNewItemsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.itemForm = this.fb.group({
+    this.itemForm = this.intialiseForm()
+
+    
+
+    
+  }
+
+  intialiseForm() {
+    return  this.fb.group({
       username: this.fb.control<string>(this.user),
       genre: this.fb.control<string>('', [Validators.required]),
       bookTitle: this.fb.control<string>('', [Validators.required]),
@@ -34,8 +42,6 @@ export class AddNewItemsComponent implements OnInit {
       pages: this.fb.control<number>(100,[ Validators.required ]),
       rating: this.fb.control<string>("5.5",[ Validators.required ])
     })
-
-    
   }
 
   saveBook() {
@@ -46,14 +52,12 @@ export class AddNewItemsComponent implements OnInit {
     const myFile = this.bookPhotoUpload.nativeElement.files[0]
     const form = this.itemForm.value as AddNewItem
 
-    // const title = this.form.get('title')?.value
-
-    // const myFile = this.toUpload.nativeElement.files[0]
-    // const title = this.form.get('title')?.value
 
     this.addNewItemsSvc.upload(myFile, form)
       .then(result => {
         console.info('>>> result from upload: ', result)
+        this.intialiseForm();
+
       }) .catch(error => {
         console.error('>> error: ', error)
       })

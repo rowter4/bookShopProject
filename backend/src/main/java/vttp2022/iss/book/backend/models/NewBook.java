@@ -49,7 +49,6 @@ public class NewBook {
     public Float getRating() { return rating; }
     public void setRating(Float rating) { this.rating = rating; }
    
-   
 
     public static NewBook create(String json) {
 
@@ -76,6 +75,7 @@ public class NewBook {
 
         return newBookDetails;
     }
+   
    
    
 

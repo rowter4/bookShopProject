@@ -21,4 +21,8 @@ export class AdminLandingComponent implements OnInit {
     this.router.navigate(['add-item'])
   }
 
+  seeAll() {
+    this.router.navigate(['books-list'])
+  }
+
 }
