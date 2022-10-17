@@ -15,6 +15,8 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
 
+import com.mysql.cj.xdevapi.Result;
+
 import vttp2022.iss.book.backend.models.BookDetail;
 import vttp2022.iss.book.backend.models.BookSummary;
 
@@ -84,16 +86,41 @@ public class GetBooksRepository {
 
     // USE ABOVE THIS
 
+    /// old getBooks without blob as below
+    // public List<BookSummary> getBooks() {
+
+    //     List<BookSummary> summaries = new LinkedList<>();
+
+    //     SqlRowSet rs = template.queryForRowSet(SQL_GET_ALL_BOOKS);
+    //     while (rs.next()) {
+    //         BookSummary summary = BookSummary.create(rs);
+    //         summaries.add(summary);
+    //     }
+    //     return summaries;
+    // }
+
     public List<BookSummary> getBooks() {
 
-        List<BookSummary> summaries = new LinkedList<>();
+        List<BookSummary> opt =  template.query(SQL_GET_ALL_BOOKS,
+                (ResultSet rs) -> {
+                    List<BookSummary> summaries = new LinkedList<>(); 
+                    while (rs.next()) {
+                        BookSummary summary = new BookSummary();
 
-        SqlRowSet rs = template.queryForRowSet(SQL_GET_ALL_BOOKS);
-        while (rs.next()) {
-            BookSummary summary = BookSummary.create(rs);
-            summaries.add(summary);
-        }
-        return summaries;
+                        summary.setBookTitle(rs.getString("title"));
+                        summary.setId(rs.getInt("book_id"));
+                        summary.setPrice(rs.getFloat("price"));
+                        summary.setBookPhoto(rs.getBytes("pic"));
+
+                        summaries.add(summary);
+
+                    }
+                    
+                    return summaries;
+                    
+                });
+                
+        return opt;
     }
 
     public Optional<BookDetail> getBookById(String bookId) {

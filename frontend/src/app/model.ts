@@ -16,7 +16,7 @@ export interface BookDetail {
     rating: number
 
     book_id: number,
-    bookPhoto: any
+    pic: Blob 
     
 }
 
@@ -27,23 +27,32 @@ export interface BookSummary {
     title: string
     price: number
     book_id: number
+    pic: Blob
 
 }
 
+
+
+// export interface Order {
+// 	orderId?: string   
+// 	lineItems: LineItem[]
+// }
+
+// export type OrderDB = {
+// 	[key:string]: Order
+// }
+
+export interface NewOrder {
+    user_id?: string
+    todos: LineItem[]
+    
+}
 
 export interface LineItem {
 	title: string
 	book_id: number
     price: number
-}
-
-export interface Order {
-	orderId?: string
     quantity: number
-	lineItems: LineItem[]
 }
 
-export type OrderDB = {
-	[key:string]: Order
-}
 

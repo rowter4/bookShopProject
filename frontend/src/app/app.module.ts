@@ -17,9 +17,10 @@ import { BooksDetailComponent } from './books-detail/books-detail.component';
 import { BooksDetailService } from './books-detail/books-detail.service';
 import { BooksListService } from './books-list/books-list.service';
 
-import { CommonModule } from '@angular/common';
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
+import { SubmitOrderService } from './cart/submitorder.service';
 // import { BrowserModule } from '@angular/common';
 
 
@@ -60,7 +61,9 @@ const appPath: Routes = [
     AddNewItemsService,
     BooksDetailService,
     BooksListService,
-    CartService
+    CartService,
+    DecimalPipe,
+    SubmitOrderService
   ],
   bootstrap: [AppComponent]
 })

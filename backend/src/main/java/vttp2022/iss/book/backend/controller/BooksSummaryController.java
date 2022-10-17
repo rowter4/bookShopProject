@@ -17,7 +17,7 @@ import vttp2022.iss.book.backend.models.BookSummary;
 import vttp2022.iss.book.backend.service.BooksService;
 
 @RestController
-@RequestMapping(path = "/book-details")
+@RequestMapping(path = "/book-summary")
 public class BooksSummaryController {
 
     @Autowired

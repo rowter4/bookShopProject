@@ -12,13 +12,19 @@ module.exports = [
     },
 
     {
-      context: [ '/book-details/**' ],
+      context: [ '/book-summary/**' ],
       target: 'http://localhost:8080',
       secure: false
     },
 
     {
       context: [ '/book-detail/**' ],
+      target: 'http://localhost:8080',
+      secure: false
+    },
+
+    {
+      context: [ '/submit-order/**' ],
       target: 'http://localhost:8080',
       secure: false
     },

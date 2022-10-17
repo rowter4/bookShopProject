@@ -4,6 +4,8 @@ package vttp2022.iss.book.backend.models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.tomcat.util.codec.binary.Base64;
+
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 
@@ -91,7 +93,7 @@ public class BookDetail {
             .add("pages", pages)
             .add("rating", rating)
             .add("book_id", id)
-            // .add("bookPhoto", bookPhoto)
+            .add("pic",  Base64.encodeBase64String(bookPhoto))
             .build();
     }
 }

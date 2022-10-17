@@ -10,7 +10,7 @@ export class BooksListService {
 
     getDetails() : Promise<BookSummary[]> {
         return firstValueFrom(
-            this.http.get<BookSummary[]>('/book-details')
+            this.http.get<BookSummary[]>('/book-summary')
         )              
     }
 

@@ -122,7 +122,8 @@
         <!-- <h1 class="visually-hidden">Heroes examples</h1> -->
 
         <div class="px-4 py-5 my-5 text-center">
-            <img class="d-block mx-auto mb-4" src="../../assets/bootstrap-themes.png" alt="" width="450" height="300">
+            <!-- <img class="d-block mx-auto mb-4" src="../../assets/bootstrap-themes.png" alt="" width="450" height="300"> -->
+            <img src="{{'data:image/jpg;base64,' + bookDetailFromId.pic}}" width="450" height="600" />
             <h1 class="display-5 fw-bold"> {{ bookDetailFromId.title }}</h1>
             <!-- <h1 class="display-5 fw-bold"> {{ rating }}</h1> -->
             <!-- <h1 class="display-5 fw-bold"> {{ bookDetailFromId.rating.value }}</h1> -->
@@ -134,7 +135,7 @@
                 </div>
 
                 <div style="margin-top:1.5rem;">
-                    <span  class="badge text-bg-success">Rating : {{ bookDetailFromId.rating  }} </span>
+                    <span  class="badge text-bg-success">Rating : {{ rating }} </span>
                     <!-- <span class="badge text-bg-danger">Danger</span> -->
                 </div>
             </div>
