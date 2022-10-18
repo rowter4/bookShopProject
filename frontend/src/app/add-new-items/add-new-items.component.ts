@@ -24,8 +24,6 @@ export class AddNewItemsComponent implements OnInit {
     this.itemForm = this.intialiseForm()
 
     
-
-    
   }
 
   intialiseForm() {

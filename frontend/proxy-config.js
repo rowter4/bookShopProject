@@ -29,4 +29,16 @@ module.exports = [
       secure: false
     },
 
+    {
+      context: [ '/pastorders/**' ],
+      target: 'http://localhost:8080',
+      secure: false
+    },
+
+    {
+      context: [ '/pastorderdetail/**' ],
+      target: 'http://localhost:8080',
+      secure: false
+    }
+
   ]

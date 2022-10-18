@@ -22,8 +22,8 @@ export class CartComponent implements OnInit {
   productList: any = []
   grandTotal : number = 0
 
-  todoForm!: FormGroup
-  todoArrayCtrl!: FormArray
+  bookOrderForm!: FormGroup
+  bookArray!: FormArray
   
 
   ngOnInit(): void {
@@ -32,14 +32,14 @@ export class CartComponent implements OnInit {
         this.productList = result
         this.grandTotal = this.cartSvc.getTotalPrice()
         
-        this.todoForm = this.createForm()        
+        this.bookOrderForm = this.createForm()        
         for (let i=0; i<this.productList.length; i++) {
           this.addToDo(this.productList[i])
         }
 
         console.info('>>> in subscription: ', this.productList)
         console.info('>>> grand total: ', this.grandTotal)
-        console.info('>>> todo Form: ', this.todoForm.value)
+        console.info('>>> todo Form: ', this.bookOrderForm.value)
       })
 
       
@@ -48,7 +48,7 @@ export class CartComponent implements OnInit {
     // this.orderForm = this.createOrder()
   //   this.sub$ = this.cartSvc.onUpdatedItemsList.subscribe(data => {
   //     console.info('>>> in subscription: ', data)
-  //     // this.todos = data
+  //     // this.bookLineOrder = data
   //   })
   //   this.allItems = this.cartSvc.onUpdatedItemsList
   //   console.info(">>>>> cart from all items: " , this.allItems)
@@ -57,10 +57,12 @@ export class CartComponent implements OnInit {
   }
 
   createForm() {
-    this.todoArrayCtrl = this.fb.array([]) 
+    this.bookArray = this.fb.array([]) 
     
     return this.fb.group({
-      todos: this.todoArrayCtrl
+      bookLineOrder: this.bookArray,
+      grandTotal: this.grandTotal.toString(),
+      username: sessionStorage.getItem("username")?.toString()
     })
   }
 
@@ -72,7 +74,7 @@ export class CartComponent implements OnInit {
       price: this.fb.control<number>(productList.price)
     })
 
-    this.todoArrayCtrl.push(todoItem)
+    this.bookArray.push(todoItem)
   }
 
   removeItem(item: any) {
@@ -82,13 +84,13 @@ export class CartComponent implements OnInit {
 
   processForm() {
     console.info(">>> form is being processed")
-    const newOrder = this.todoForm.value as NewOrder
+    const newOrder = this.bookOrderForm.value as NewOrder
 
     this.submitSvc.processOrder(newOrder)
       .then(result => {
         console.info('>>>> result: ', result)
         this.cartSvc.removeAllCart()
-        // this.todoForm = this.formReset()
+        // this.bookOrderForm = this.formReset()
         this.router.navigate(['books-list'])
         // alert(`Your registration ID is ${result.message}`)
       })

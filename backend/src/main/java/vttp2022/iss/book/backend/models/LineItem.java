@@ -2,6 +2,9 @@ package vttp2022.iss.book.backend.models;
 
 import java.util.logging.Logger;
 
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+
+import jakarta.json.Json;
 import jakarta.json.JsonObject;
 
 public class LineItem {
@@ -40,5 +43,32 @@ public class LineItem {
         return item;
     }
     
+
+    public static LineItem create2(SqlRowSet rs) {
+
+        logger.info("LineItem from rs: %s".formatted(rs));
+        logger.info("LineItem from rs: %s".formatted(rs.getString("title")));
+        logger.info("LineItem from rs: %s".formatted(rs.getFloat("price")));
+        logger.info("LineItem from rs: %s".formatted(rs.getInt("quantity")));
+
+        LineItem lineItem = new LineItem();
+
+        lineItem.setTitle(rs.getString("title"));
+        lineItem.setPrice(rs.getFloat("price"));  // need to change to string 
+        lineItem.setQuantity(rs.getInt("quantity"));
+
+        return lineItem;
+    }
+
+    
+
+    public JsonObject toJson() {
+        return Json.createObjectBuilder()
+                .add("title",title)
+                .add("quantity", quantity)
+                .add("price", price)
+                .build();
+
+    }
    
 }

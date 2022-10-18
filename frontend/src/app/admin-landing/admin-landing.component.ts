@@ -25,4 +25,9 @@ export class AdminLandingComponent implements OnInit {
     this.router.navigate(['books-list'])
   }
 
+  getPastOrder() {
+    console.info("past information button triggered")
+    this.router.navigate(['pastorders'])
+  }
+
 }

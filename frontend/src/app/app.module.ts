@@ -21,6 +21,10 @@ import { CommonModule, DecimalPipe } from '@angular/common';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
 import { SubmitOrderService } from './cart/submitorder.service';
+import { PastOrderListComponent } from './past-order-list/past-order-list.component';
+import { PastOrderListService } from './past-order-list/past-order-list.service';
+import { PastOrderDetailComponent } from './past-order-detail/past-order-detail.component';
+import { PastORderDetailService } from './past-order-detail/past-order-detail.service';
 // import { BrowserModule } from '@angular/common';
 
 
@@ -32,6 +36,8 @@ const appPath: Routes = [
   { path: 'books-list', component: BooksListComponent },
   { path: 'books-detail/:book_id', component: BooksDetailComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'pastorders', component: PastOrderListComponent},
+  { path: 'orderdetail/:ord_id', component: PastOrderDetailComponent},
 
 
   
@@ -47,7 +53,9 @@ const appPath: Routes = [
     AdminLandingComponent,
     AddNewItemsComponent,
     BooksListComponent,
-    CartComponent
+    CartComponent,
+    PastOrderListComponent,
+    PastOrderDetailComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +71,9 @@ const appPath: Routes = [
     BooksListService,
     CartService,
     DecimalPipe,
-    SubmitOrderService
+    SubmitOrderService,
+    PastOrderListService,
+    PastORderDetailService
   ],
   bootstrap: [AppComponent]
 })

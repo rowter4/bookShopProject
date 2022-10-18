@@ -13,7 +13,10 @@ public interface Queries {
 
     // handling the orders that comes in 
     public static final String SQL_INSERT_LINE_ITEM = "insert into line_item(title, quantity, price, ord_id, username) values (?, ?, ?, ?, ?)";
+    public static final String SQL_INSERT_ORDER_DETAILS = "insert into order_summary(ord_id, username, total, ts) values (?,?,?, CURRENT_TIMESTAMP) " ;
 
-
-
+    // getting the past order information 
+    public static final String SQL_GET_ORDER_HISTORY = " select * from order_summary where username = ?"; 
+    public static final String SQL_GET_ITEMS_BY_ORD_ID = "select * from line_item where ord_id = ?"; 
 }
+    

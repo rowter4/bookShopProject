@@ -20,10 +20,7 @@ export interface BookDetail {
     
 }
 
-
-
-export interface BookSummary {
-   
+export interface BookSummary {   
     title: string
     price: number
     book_id: number
@@ -31,20 +28,10 @@ export interface BookSummary {
 
 }
 
-
-
-// export interface Order {
-// 	orderId?: string   
-// 	lineItems: LineItem[]
-// }
-
-// export type OrderDB = {
-// 	[key:string]: Order
-// }
-
 export interface NewOrder {
-    user_id?: string
-    todos: LineItem[]
+    username?: string
+    bookLineOrder: LineItem[]  
+    grandTotal: any 
     
 }
 
@@ -55,4 +42,10 @@ export interface LineItem {
     quantity: number
 }
 
+
+export interface BookOrderHistory { 
+    ord_id : string
+    total : string
+    ts: any
+}
 
