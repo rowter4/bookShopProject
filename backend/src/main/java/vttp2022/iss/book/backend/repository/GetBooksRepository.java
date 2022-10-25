@@ -30,75 +30,6 @@ public class GetBooksRepository {
 
     Logger logger = Logger.getLogger(GetBooksRepository.class.getName());
 
-    // public Optional<FileData> selectAllBooks() throws SQLException {
-
-    // // List<AllBookDetail> details = new LinkedList<>();
-
-    // String postId = "4";
-
-    // return template.query(SQL_GET_ALL_BOOKS,
-    // (ResultSet rs) -> {
-    // if (!rs.next())
-    // return Optional.empty();
-    // return Optional.of(AllBookDetail.create(rs));
-    // },
-    // postId
-
-    // );
-
-    // }
-
-    /// USE BELOW THIS
-    // public List<AllBookDetail> listAllBooks() {
-
-    // List<AllBookDetail> details = template.query(SQL_GET_ALL_BOOKS, new
-    // ResultSetExtractor<List<AllBookDetail>>() {
-
-    // public List<AllBookDetail> extractData(ResultSet rs) throws SQLException,
-    // DataAccessException {
-
-    // List<AllBookDetail> list = new ArrayList<AllBookDetail>();
-
-    // while (rs.next()) {
-    // AllBookDetail details = new AllBookDetail();
-
-    // details.setGenre(rs.getString("genres"));
-    // details.setBookTitle(rs.getString("title"));
-    // details.setEdition(rs.getString("edition"));
-    // details.setAuthors(rs.getString("authors"));
-    // details.setFormat(rs.getString("format"));
-    // details.setDescription(rs.getString("description"));
-    // details.setPrice(rs.getFloat("price"));
-    // details.setPages(rs.getInt("pages"));
-    // details.setRating(rs.getFloat("rating"));
-    // details.setId(rs.getInt("book_id"));
-    // // details.setBookPhoto(rs.getBytes("pic"));
-
-    // list.add(details);
-    // }
-
-    // return list;
-    // }
-    // });
-
-    // return details;
-    // }
-
-    // USE ABOVE THIS
-
-    /// old getBooks without blob as below
-    // public List<BookSummary> getBooks() {
-
-    //     List<BookSummary> summaries = new LinkedList<>();
-
-    //     SqlRowSet rs = template.queryForRowSet(SQL_GET_ALL_BOOKS);
-    //     while (rs.next()) {
-    //         BookSummary summary = BookSummary.create(rs);
-    //         summaries.add(summary);
-    //     }
-    //     return summaries;
-    // }
-
     public List<BookSummary> getBooks() {
 
         List<BookSummary> opt =  template.query(SQL_GET_ALL_BOOKS,
@@ -136,12 +67,5 @@ public class GetBooksRepository {
                 },
                 bookId);
 
-        
-
-        // SqlRowSet rs = template.queryForRowSet(SQL_BOOKS_BY_ID,bookId);
-        // if (rs.next()){
-        // return Optional.of(BookDetail.create(rs));
-        // }
-        // return Optional.empty();
     }
 }

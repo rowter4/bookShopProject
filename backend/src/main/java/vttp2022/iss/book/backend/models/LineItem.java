@@ -12,7 +12,7 @@ public class LineItem {
     private String title;
     private Integer book_id;
     private Integer quantity;
-    private Float price;
+    private String price;
     
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
@@ -23,13 +23,12 @@ public class LineItem {
     public Integer getQuantity() { return quantity; }
     public void setQuantity(Integer quantity) { this.quantity = quantity; }
 
-    public Float getPrice() {
-        return price;
-    }
-    public void setPrice(Float price) {
-        this.price = price;
-    }
     
+    public String getPrice() { return price;  }
+    public void setPrice(String price) {  this.price = price; }
+
+
+
     private static Logger logger = Logger.getLogger(LineItem.class.getName());
     
     public static LineItem create(JsonObject o) {
@@ -38,7 +37,7 @@ public class LineItem {
         item.setTitle(o.getString("title"));
         item.setBook_id(o.getInt("book_id"));
         item.setQuantity(o.getInt("quantity"));
-        item.setPrice((float) o.getInt("price")); // cannnot convert to float
+        item.setPrice(o.getString("price")); // cannnot convert to float
 
         return item;
     }
@@ -54,7 +53,7 @@ public class LineItem {
         LineItem lineItem = new LineItem();
 
         lineItem.setTitle(rs.getString("title"));
-        lineItem.setPrice(rs.getFloat("price"));  // need to change to string 
+        lineItem.setPrice(rs.getString("price"));  // need to change to string 
         lineItem.setQuantity(rs.getInt("quantity"));
 
         return lineItem;

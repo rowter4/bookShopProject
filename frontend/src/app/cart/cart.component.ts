@@ -71,7 +71,7 @@ export class CartComponent implements OnInit {
       title: this.fb.control<string>(productList.title),
       book_id : this.fb.control<string>(productList.book_id),
       quantity: this.fb.control<number>(1),
-      price: this.fb.control<number>(productList.price)
+      price: this.fb.control(productList.price.toString())
     })
 
     this.bookArray.push(todoItem)

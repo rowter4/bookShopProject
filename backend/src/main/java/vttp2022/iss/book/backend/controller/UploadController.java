@@ -1,13 +1,17 @@
 package vttp2022.iss.book.backend.controller;
 
+import java.util.Optional;
+import java.util.logging.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -57,8 +61,23 @@ public class UploadController {
                     .status(HttpStatus.BAD_REQUEST)
                     .body(resp.toJson().toString());
         }
-            
-        
-
     }
+
+    // @GetMapping(path="/getBooks")
+    // public ResponseEntity<String> getBooksMetadataFromBookId(@RequestParam String book_id) {
+
+    //     Logger logger = Logger.getLogger(UploadController.class.getName());
+
+    //     Optional<NewBook> opt = uploadBookRepo.getBookById(book_id);
+
+    //     logger.info("Book ID being passed : %s".formatted(bookId));
+
+    //     BookDetail detail = opt.get();
+
+    //     return ResponseEntity
+    //             .status(HttpStatus.OK)
+    //             .body(detail.toJson().toString());
+    //     return null;
+    // }
 }
+ 

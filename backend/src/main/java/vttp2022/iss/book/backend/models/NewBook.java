@@ -62,7 +62,7 @@ public class NewBook {
         final NewBook newBookDetails = new NewBook();
 
         newBookDetails.setUsername(data.getInt("username"));
-        newBookDetails.setGenre(data.getString("genre"));
+        newBookDetails.setGenre(data.getString("genres"));
         newBookDetails.setBookTitle(data.getString("bookTitle"));
         newBookDetails.setEdition(data.getString("edition"));
         newBookDetails.setAuthors(data.getString("authors"));

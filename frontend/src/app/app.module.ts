@@ -25,6 +25,8 @@ import { PastOrderListComponent } from './past-order-list/past-order-list.compon
 import { PastOrderListService } from './past-order-list/past-order-list.service';
 import { PastOrderDetailComponent } from './past-order-detail/past-order-detail.component';
 import { PastORderDetailService } from './past-order-detail/past-order-detail.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 // import { BrowserModule } from '@angular/common';
 
 
@@ -62,7 +64,9 @@ const appPath: Routes = [
     BrowserModule,
     RouterModule.forRoot(appPath, { useHash: true }),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [
     SigninService,

@@ -38,7 +38,7 @@ export interface NewOrder {
 export interface LineItem {
 	title: string
 	book_id: number
-    price: number
+    price: string
     quantity: number
 }
 

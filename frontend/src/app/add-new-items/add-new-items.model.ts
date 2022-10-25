@@ -1,6 +1,6 @@
 export interface AddNewItem {
     username: number
-    genre: string
+    genres: string
     bookTitle: string
     edition: string
     authors: string

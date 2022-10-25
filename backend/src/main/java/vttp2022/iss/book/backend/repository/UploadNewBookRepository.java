@@ -37,4 +37,8 @@ public class UploadNewBookRepository {
 
         return false;
     }
+
+    public NewBook getBookById(String book_id) {
+        return null;
+    }
 }

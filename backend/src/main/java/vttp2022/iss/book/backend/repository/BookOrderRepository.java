@@ -30,9 +30,9 @@ public class BookOrderRepository {
 
     public boolean insertBookOrder(String orderId, LineItem li, String username) {
         // insert into line_item(title, quantity, price, ord_id, username) values (?, ?, ?, ?, ?)";
-        logger.info("insertBookFired with orderId of %s and lineItem of %s".formatted(orderId, li.getTitle()));
-        int count = template.update(SQL_INSERT_LINE_ITEM, li.getTitle(), li.getQuantity(), li.getPrice(), orderId,
-                username);
+        // logger.info("insertBookFired with username of %d and quantity of %d and price of %s".formatted(orderId, li.getTitle(), li.getPrice()));
+        logger.info("insertBook Details %s - %s - %s - %s - %s ".formatted(li.getTitle(), li.getQuantity(), li.getPrice(), orderId, username));
+        int count = template.update(SQL_INSERT_LINE_ITEM, li.getTitle(), li.getQuantity(), li.getPrice(), orderId, username);
         return 1 == count;
     }
 
